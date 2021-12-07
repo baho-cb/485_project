@@ -1,0 +1,38 @@
+#== General_Parameters ==========================================
+Initialization [type/filename]: molecule
+BoxDimension [Lx,Ly,Lz]: 30.0 30.0 30.0
+BoxGeometry [type]: pbc
+MovesPerCycle [cycle]: 3000000
+NumParticleTypes [NumTypes]: 3
+NumParticles [num_A,num_B,num_C,..]: 0 0 0
+NumMoleculeTypes [NumTypes]: 2
+MoleculeTypeFiles [filename_1, filename_2, ...]:  ../shapes/relaxed/ext_1.txt ../shapes/relaxed/ext_1.txt
+NumMolecules [num_A,num_B,num_C,..]:  1 1
+Equilibration [n_cycles]: 10
+Temperature [temp]: 1.000
+Pressure [p]: 1.0
+Ensemble [type]: NVT
+#== Potentials ==================================================
+# SS Parameters                               sigma- eps- w1- bar w2
+Potential [type,type,name,parameters]: A A WCA 1.00 1.0
+Potential [type,type,name,parameters]: A B Zero
+Potential [type,type,name,parameters]: B B Zero
+Potential [type,type,name,parameters]: C C WCA 1.00 1.0
+Potential [type,type,name,parameters]: B C WCA 1.35 1.0
+Potential [type,type,name,parameters]: A C SS  1.00 2.0 1.0 1.2 1.0
+#== Output ======================================================
+#PrintSnapshot [f_cy]: 1
+#PrintEnergy [f_cy]: 1
+#PrintSnapshot [f_cy]: 1
+#PrintEnergy [f_cy]: 1
+#PrintCenterofMass [f_cy]: 1
+
+#== Monte_Carlo_Move_Set ========================================
+CanMove [f_A,f_B,f_C,..]: 0 0 0
+CMTranslateMove [f_A,f_B,f_C,..]: 0 0
+RotationMove [f_A,f_B,f_C,..]: 0 0
+
+#==Enhanced Sampling Runs =====================================
+PmfDirectParameters [begin,end,resolution,N_sample]: 4.45 8.5 0.05 12000000.0
+PmfMolecule1 : ../shapes/relaxed/ext_1.txt
+PmfMolecule2 : ../shapes/relaxed/ext_1.txt

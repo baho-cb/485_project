@@ -1,0 +1,30 @@
+#== General_Parameters ==========================================
+Initialization [type/filename]: molecule
+BoxDimension [Lx,Ly,Lz]: 30.00 30.00 30.00
+BoxGeometry [type]: pbc
+MovesPerCycle [cycle]: 100000
+NumParticleTypes[NumTypes]: 3
+NumParticles [num_A,num_B,num_C,..]: 0 0 0
+NumMoleculeTypes [NumTypes]: 2
+MoleculeTypeFiles [filename_1, filename_2, ...]: ../../shapes/relaxed/elliptic_301.txt ../../shapes/relaxed/type2_single.txt
+NumMolecules [num_A,num_B,num_C,..]: 1 1
+Equilibration [n_cycles]: 10
+Pressure [p]: 1.0
+Ensemble [type]: NVT
+Temperature [temp]: 1.00
+#== Potentials ======================================
+# SS Parameters                               sigma- eps- w1- bar w2
+Potential [type,type,name,parameters]: A A WCA 1.00 1.0
+Potential [type,type,name,parameters]: A B Zero
+Potential [type,type,name,parameters]: B B Zero
+Potential [type,type,name,parameters]: B C WCA 1.60 1.0
+Potential [type,type,name,parameters]: A A WCA 1.00 1.0
+Potential [type,type,name,parameters]: A C SS 1.00 2.00 1.00 1.2 1.00
+#== Monte_Carlo_Move_Set ======================================
+CanMove [f_A,f_B,f_C,..]: 0 0 0
+CMTranslateMove [f_A,f_B,f_C,..]: 0 0
+RotationMove [f_A,f_B,f_C,..]: 0 0
+#==Enhanced Sampling Runs =====================================
+PmfDirectParameters [begin,end,resolution,N_sample]: 1.70 6.50 0.025 1000000.0
+PmfMolecule1 : ../../shapes/relaxed/elliptic_301.txt
+PmfMolecule2 : ../../shapes/relaxed/type2_single.txt
